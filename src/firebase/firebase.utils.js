@@ -2,14 +2,24 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
+// const config = {
+//   apiKey: 'AIzaSyCdHT-AYHXjF7wOrfAchX4PIm3cSj5tn14',
+//   authDomain: 'crwn-db.firebaseapp.com',
+//   databaseURL: 'https://crwn-db.firebaseio.com',
+//   projectId: 'crwn-db',
+//   storageBucket: 'crwn-db.appspot.com',
+//   messagingSenderId: '850995411664',
+//   appId: '1:850995411664:web:7ddc01d597846f65'
+// };
+
 const config = {
-  apiKey: 'AIzaSyCdHT-AYHXjF7wOrfAchX4PIm3cSj5tn14',
-  authDomain: 'crwn-db.firebaseapp.com',
-  databaseURL: 'https://crwn-db.firebaseio.com',
-  projectId: 'crwn-db',
-  storageBucket: 'crwn-db.appspot.com',
-  messagingSenderId: '850995411664',
-  appId: '1:850995411664:web:7ddc01d597846f65'
+  apiKey: "AIzaSyAAGZzbXEC30WbpIJbDWe33AYodxgfYbFA",
+  authDomain: "prime-force-302216.firebaseapp.com",
+  projectId: "prime-force-302216",
+  storageBucket: "prime-force-302216.appspot.com",
+  messagingSenderId: "989887129351",
+  appId: "1:989887129351:web:f6d91785e1e82258df47a2",
+  measurementId: "G-RBZ0MEDEW1",
 };
 
 firebase.initializeApp(config);

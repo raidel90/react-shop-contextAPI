@@ -1,0 +1,64 @@
+import React, { createContext, useEffect, useState } from "react";
+
+import {
+  addItemToCart,
+  removeItemFromCart,
+  filterItemFromCart,
+  getCartItemsCount,
+  getCartTotalCount,
+} from "./cart.utils";
+
+export const CartContext = createContext({
+  hidden: true,
+  cartTotalCount: 0,
+  toggleHidden: () => {},
+  cartItems: [],
+  addItem: () => {},
+  removeItem: () => {},
+  clearItemFromCart: () => {},
+  cartItemsCount: 0,
+});
+
+const CartProvider = ({ children }) => {
+  const [hidden, setHidden] = useState(true);
+  const [cartTotalCount, setCartTotalCount] = useState(true);
+  const [cartItems, setCartItems] = useState([]);
+  const [cartItemsCount, setCartItemsCount] = useState(0);
+
+  const toggleHidden = () => {
+    setHidden(!hidden);
+  };
+
+  const addItem = (item) => setCartItems(addItemToCart(cartItems, item));
+
+  const removeItem = (item) =>
+    setCartItems(removeItemFromCart(cartItems, item));
+
+  const clearItemFromCart = (item) =>
+    setCartItems(filterItemFromCart(cartItems, item));
+
+    useEffect(()=>{
+        setCartItemsCount(getCartItemsCount(cartItems));
+        setCartTotalCount(getCartTotalCount(cartItems));
+    },[cartItems]);
+
+
+  return (
+    <CartContext.Provider
+      value={{
+        hidden, 
+        cartTotalCount,
+        toggleHidden,
+        cartItems,
+        addItem,
+        removeItem,
+        cartItemsCount,
+        clearItemFromCart
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+};
+
+export default CartProvider;
